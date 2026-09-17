@@ -1,0 +1,177 @@
+/* Suggested palette: dark text and blue links on white or pale gray. */
+:root {
+  --background: #ffffff;
+  --surface: #f3f4f6;
+  --text: #1f2937;
+  --accent: #1d4ed8;
+  --border: #6b7280;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  color: var(--text);
+  font: 1rem/1.6 system-ui, sans-serif;
+  overflow-wrap: anywhere;
+}
+body > header, main, footer {
+  width: min(100% - 2rem, 64rem);
+  margin-inline: auto;
+  padding-block: 1rem;
+}
+main { flex: 1; }
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a { color: var(--accent); }
+nav a { display: block; padding: 0.5rem; }
+nav [aria-current="page"] {
+  font-weight: 700;
+  background: var(--surface);
+  text-decoration-thickness: 0.15em;
+}
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+img { display: block; max-width: 100%; height: auto; }
+section + section { margin-top: 2rem; }
+.image-placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 10rem;
+  padding: 1rem;
+  border: 1px dashed var(--border);
+  background: var(--surface);
+}
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  border-top: 1px solid var(--border);
+}
+footer p { margin: 0; }
+
+/* Home page */
+.about-layout { display: grid; gap: 1rem; }
+.about-layout > * { min-width: 0; }
+@media (min-width: 40rem) {
+  .about-layout { grid-template-columns: 14rem minmax(0, 1fr); }
+}
+
+/* Hobbies page */
+.hobby-card {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+}
+.hobby-card + .hobby-card { margin-top: 1rem; }
+.hobby-card > * { min-width: 0; }
+.hobby-card h2 { margin-top: 0; }
+@media (min-width: 40rem) {
+  .hobby-card { grid-template-columns: 14rem minmax(0, 1fr); }
+  .hobby-card:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr) 14rem;
+  }
+  .hobby-card:nth-child(even) > :first-child {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .hobby-card:nth-child(even) > :last-child {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+/* Projects page */
+details {
+  margin-block: 1rem;
+  border: 1px solid var(--border);
+}
+summary {
+  padding: 1rem;
+  cursor: pointer;
+  font-weight: 700;
+  background: var(--surface);
+}
+details[open] summary { border-bottom: 1px solid var(--border); }
+.project-description { display: grid; gap: 1rem; padding: 1rem; }
+.project-description > * { min-width: 0; }
+@media (min-width: 40rem) {
+  .project-description { grid-template-columns: 14rem minmax(0, 1fr); }
+}
+
+/* Resume page: serif typography and section rules follow the supplied resume. */
+.resume-page {
+  width: min(100% - 2rem, 58rem);
+  color: #111111;
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1.25;
+}
+.resume-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.resume-name { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem; }
+.resume-page h1 { margin: 0; font-size: 1.5rem; line-height: 1.2; }
+.resume-page p { margin: 0; }
+.resume-contact { text-align: right; }
+.resume-page a { color: inherit; text-underline-offset: 0.15em; }
+.resume-page h2 {
+  margin: 0 0 0.35rem;
+  padding-bottom: 0.1rem;
+  border-bottom: 1px solid currentColor;
+  font-size: 1.25rem;
+  font-variant: small-caps;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.resume-page section + section { margin-top: 1.25rem; }
+.resume-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0.1rem 1rem;
+}
+.resume-heading > *, .resume-row > * { min-width: 0; }
+.resume-row h3 { margin: 0; font-size: 1rem; }
+.resume-row > :last-child { text-align: right; }
+.resume-role { font-style: italic; }
+.resume-list { margin: 0; padding-left: 1.15rem; list-style-type: disc; }
+.resume-list > li + li { margin-top: 0.5rem; }
+.resume-list ul { margin: 0.35rem 0 0; padding-left: 1.4rem; list-style-type: circle; }
+.resume-list ul li + li { margin-top: 0.2rem; }
+@media (max-width: 47.99rem) {
+  .resume-heading, .resume-row { grid-template-columns: minmax(0, 1fr); }
+  .resume-contact, .resume-row > :last-child { text-align: left; }
+  .resume-page { line-height: 1.4; }
+}
+@media print {
+  .resume-document { display: block; min-height: 0; }
+  .resume-document > header, .resume-document > footer { display: none; }
+  .resume-page { width: 100%; padding: 0; font-size: 10pt; line-height: 1.12; }
+  .resume-page h1 { font-size: 16pt; }
+  .resume-page h2 { font-size: 12pt; }
+  .resume-row h3 { font-size: 10pt; }
+  .resume-heading { grid-template-columns: minmax(0, 1fr) auto; margin-bottom: 0.6rem; }
+  .resume-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .resume-contact, .resume-row > :last-child { text-align: right; }
+  .resume-page section + section { margin-top: 0.7rem; }
+  .resume-list > li + li { margin-top: 0.35rem; }
+  .resume-page h2 { break-after: avoid; }
+  .resume-list > li { break-inside: avoid; }
+}
