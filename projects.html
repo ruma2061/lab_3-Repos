@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | Russell Mazeika</title>
+  <!-- Local Bootstrap 5.3.8 stylesheet; no JavaScript is required. -->
+  <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../resources/css/styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <header class="border-bottom bg-body-tertiary">
+    <nav class="navbar site-nav py-3" aria-label="Main navigation">
+      <div class="container flex-wrap gap-2">
+        <a class="navbar-brand fw-semibold me-0" href="home.html">Russell Mazeika</a>
+        <!-- Always-visible links wrap on small screens without a JavaScript toggler. -->
+        <ul class="navbar-nav flex-row flex-wrap gap-1 ms-md-auto">
+          <li class="nav-item"><a class="nav-link px-2 rounded" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link px-2 rounded active" href="projects.html" aria-current="page">Projects</a></li>
+          <li class="nav-item"><a class="nav-link px-2 rounded" href="resume.html">Resume</a></li>
+          <li class="nav-item"><a class="nav-link px-2 rounded" href="hobbies.html">Hobbies</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container flex-grow-1 py-4 py-md-5">
+    <h1 class="fw-bold mb-3">Projects</h1>
+    <p class="d-flex flex-wrap gap-2 mb-4">
+      <span class="badge text-bg-primary rounded-pill">Aerospace</span>
+      <span class="badge text-bg-primary rounded-pill">Computer Science</span>
+    </p>
+
+    <!-- Bootstrap grid and cards; native details keep descriptions interactive without JavaScript. -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+      <div class="col">
+        <article class="card h-100 shadow-sm" aria-labelledby="project-1">
+          <div class="image-placeholder card-img-top">[Project 1 image]</div>
+          <div class="card-body p-4">
+            <details class="project-details" name="projects">
+              <summary><h2 id="project-1" class="h5 d-inline">[CS / Aerospace Project 1]</h2></summary>
+              <p class="mt-3 mb-0">[Project description]</p>
+            </details>
+          </div>
+        </article>
+      </div>
+      <div class="col">
+        <article class="card h-100 shadow-sm" aria-labelledby="project-2">
+          <div class="image-placeholder card-img-top">[Project 2 image]</div>
+          <div class="card-body p-4">
+            <details class="project-details" name="projects">
+              <summary><h2 id="project-2" class="h5 d-inline">[CS / Aerospace Project 2]</h2></summary>
+              <p class="mt-3 mb-0">[Project description]</p>
+            </details>
+          </div>
+        </article>
+      </div>
+      <div class="col">
+        <article class="card h-100 shadow-sm" aria-labelledby="project-3">
+          <div class="image-placeholder card-img-top">[Current project image]</div>
+          <div class="card-body p-4">
+            <details class="project-details" name="projects">
+              <summary><h2 id="project-3" class="h5 d-inline">[Current Project / Role]</h2></summary>
+              <p class="mt-3 mb-0">[Current project or role description]</p>
+            </details>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="border-top bg-body-tertiary mt-auto">
+    <div class="container d-flex flex-wrap gap-2 py-3">
+      <a class="btn btn-outline-primary btn-sm" href="https://github.com/ruma2061">GitHub</a>
+      <a class="btn btn-outline-primary btn-sm" href="https://www.linkedin.com/in/russell-mazeika-281b3b23a/">LinkedIn</a>
+    </div>
+  </footer>
+</body>
+</html>
